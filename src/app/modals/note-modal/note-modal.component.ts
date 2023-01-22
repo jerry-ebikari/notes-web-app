@@ -35,6 +35,16 @@ export class NoteModalComponent implements OnInit {
     this.noteContent = event.target.innerText;
   }
 
+  setBackgroundColor(color: string) {
+    this.notDefaultColor = true;
+    this.backgroundColor = color;
+  }
+
+  removeBackground() {
+    this.notDefaultColor = false;
+    this.backgroundColor = "";
+  }
+
   ngOnInit(): void {
     if (this.modal.context.noteData.edit) {
       this.title = this.modal.context.noteData.title;

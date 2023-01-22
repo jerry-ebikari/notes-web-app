@@ -1,6 +1,6 @@
 <div class="note-modal-container">
     <div
-        [class]="'ui vertical segment title' + backgroundColor"
+        [class]="'ui vertical segment title ' + backgroundColor"
         contenteditable
         (input)="updateTitle($event)"
         [ngClass]="{
@@ -9,7 +9,7 @@
         }"
     ></div>
     <div
-        class="ui vertical segment note"
+    [class]="'ui vertical segment note ' + backgroundColor"
         contenteditable
         (input)="updateNote($event)"
         [ngClass]="{
@@ -18,8 +18,18 @@
             color: backgroundColor
         }"
     ></div>
-    <div class="ui vertical segment toolbar">
-        <button class="ui basic circular icon button"></button>
-        <button *ngFor="let color of colors" [class]="'ui circular icon button ' + color"></button>
+    <div
+        [class]="'ui vertical segment toolbar ' + backgroundColor"
+        [ngClass]="{
+            inverted: notDefaultColor,
+            color: backgroundColor
+        }"
+    >
+        <button class="ui basic circular icon button" (click)="removeBackground()"></button>
+        <button
+            *ngFor="let color of colors"
+            [class]="'ui circular icon button ' + color"
+            (click)="setBackgroundColor(color)"
+        ></button>
     </div>
 </div>
