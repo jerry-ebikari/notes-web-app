@@ -26,7 +26,13 @@
             color: backgroundColor
         }"
     >
-        <div class="ui circular icon dropdown button" suiDropdown>
+        <div
+            class="ui circular icon dropdown button"
+            suiDropdown
+            suiPopup
+            popupText="Change Background"
+        >
+            <i class="ui tint icon"></i>
             <div class="menu" suiDropdownMenu>
                 <div id="colors-menu">
                     <button class="ui basic circular icon button" (click)="removeBackground()"></button>
