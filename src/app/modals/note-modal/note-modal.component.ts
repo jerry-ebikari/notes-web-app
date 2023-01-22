@@ -9,18 +9,30 @@ import { ComponentModalConfig } from '@richardlt/ng2-semantic-ui';
   styleUrls: ['./note-modal.component.scss']
 })
 export class NoteModalComponent implements OnInit {
-  title = "Title";
-  noteContent = "Take a note...";
-  titleTouched = false;
-  noteContentTouched = false;
+  title = "";
+  noteContent = "";
+  titleEmpty = false;
+  noteContentEmpty = false;
+  notDefaultColor = false;
+  backgroundColor = "";
+  colors = [
+    "black",
+    "red",
+    "blue",
+    "yellow",
+    "green",
+    "orange",
+    "purple",
+    "violet"
+  ]
   constructor(private modal: SuiModal<{noteData: any}>) { }
 
   updateTitle(event: any) {
-    console.log(event.target.innerText);
+    this.title = event.target.innerText;
   }
 
   updateNote(event: any) {
-    console.log(event);
+    this.noteContent = event.target.innerText;
   }
 
   ngOnInit(): void {

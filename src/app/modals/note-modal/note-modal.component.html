@@ -1,4 +1,25 @@
 <div class="note-modal-container">
-    <div class="ui vertical segment title" contenteditable (input)="updateTitle($event)">Title</div>
-    <div class="ui vertical segment note" contenteditable (input)="updateNote($event)">Take a note</div>
+    <div
+        [class]="'ui vertical segment title' + backgroundColor"
+        contenteditable
+        (input)="updateTitle($event)"
+        [ngClass]="{
+            empty: title.length == 0,
+            inverted: notDefaultColor
+        }"
+    ></div>
+    <div
+        class="ui vertical segment note"
+        contenteditable
+        (input)="updateNote($event)"
+        [ngClass]="{
+            empty: noteContent.length == 0,
+            inverted: notDefaultColor,
+            color: backgroundColor
+        }"
+    ></div>
+    <div class="ui vertical segment toolbar">
+        <button class="ui basic circular icon button"></button>
+        <button *ngFor="let color of colors" [class]="'ui circular icon button ' + color"></button>
+    </div>
 </div>
