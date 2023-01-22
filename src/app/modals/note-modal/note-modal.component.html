@@ -1,1 +1,4 @@
-<p>note-modal works!</p>
+<div class="note-modal-container">
+    <div class="ui vertical segment title" contenteditable (input)="updateTitle($event)">Title</div>
+    <div class="ui vertical segment note" contenteditable (input)="updateNote($event)">Take a note</div>
+</div>
