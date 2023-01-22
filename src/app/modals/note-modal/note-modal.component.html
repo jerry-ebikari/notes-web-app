@@ -18,6 +18,7 @@
             color: backgroundColor
         }"
     ></div>
+    
     <div
         [class]="'ui vertical segment toolbar ' + backgroundColor"
         [ngClass]="{
@@ -25,11 +26,18 @@
             color: backgroundColor
         }"
     >
-        <button class="ui basic circular icon button" (click)="removeBackground()"></button>
-        <button
-            *ngFor="let color of colors"
-            [class]="'ui circular icon button ' + color"
-            (click)="setBackgroundColor(color)"
-        ></button>
+        <div class="ui circular icon dropdown button" suiDropdown>
+            <div class="menu" suiDropdownMenu>
+                <div id="colors-menu">
+                    <button class="ui basic circular icon button" (click)="removeBackground()"></button>
+                    <button
+                        *ngFor="let color of colors"
+                        [class]="'ui circular icon button ' + color"
+                        (click)="setBackgroundColor(color)"
+                    ></button>
+                </div>
+            </div>
+        </div>
     </div>
+    
 </div>

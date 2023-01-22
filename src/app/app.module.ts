@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { SuiModalModule } from '@richardlt/ng2-semantic-ui';
+import { SuiDropdownModule, SuiModalModule } from '@richardlt/ng2-semantic-ui';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +14,8 @@ import { NoteModalComponent } from './modals/note-modal/note-modal.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SuiModalModule
+    SuiModalModule,
+    SuiDropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]
