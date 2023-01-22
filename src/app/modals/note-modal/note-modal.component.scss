@@ -27,6 +27,7 @@
         font-size: 16px;
         line-height: 1.8rem;
         padding: $padding;
+        min-height: 200px;
         position: relative;
         &.empty::after {
             content: "Take a note...";
@@ -37,7 +38,9 @@
     }
 
     .toolbar {
-        padding: $padding;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
     }
 }
 

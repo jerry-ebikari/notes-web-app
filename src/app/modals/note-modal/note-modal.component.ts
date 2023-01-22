@@ -23,9 +23,14 @@ export class NoteModalComponent implements OnInit {
     "green",
     "orange",
     "purple",
-    "violet"
+    "violet",
+    "olive",
+    "teal",
+    "brown",
+    "pink",
+    "grey"
   ]
-  constructor(private modal: SuiModal<{noteData: any}>) { }
+  constructor(public modal: SuiModal<{noteData: any}>) { }
 
   updateTitle(event: any) {
     this.title = event.target.innerText;
@@ -46,9 +51,11 @@ export class NoteModalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.modal.context.noteData.edit) {
+    if (this.modal.context?.noteData?.edit) {
       this.title = this.modal.context.noteData.title;
       this.noteContent = this.modal.context.noteData.noteContent;
+      this.backgroundColor = this.modal.context.noteData.backgroundColor;
+      this.notDefaultColor = this.backgroundColor ? true : false;
     }
   }
 
