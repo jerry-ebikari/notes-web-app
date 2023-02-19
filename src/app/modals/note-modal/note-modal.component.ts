@@ -9,12 +9,14 @@ import { ComponentModalConfig } from '@richardlt/ng2-semantic-ui';
   styleUrls: ['./note-modal.component.scss']
 })
 export class NoteModalComponent implements OnInit {
-  title = "";
-  noteContent = "";
   titleEmpty = false;
-  noteContentEmpty = false;
   notDefaultColor = false;
-  backgroundColor = "";
+  initialData: any = null;
+  newNote: any = {
+    title: "",
+    noteContent: "",
+    backgroundColor: ""
+  };
   colors = [
     "black",
     "red",
@@ -30,38 +32,37 @@ export class NoteModalComponent implements OnInit {
     "pink",
     "grey"
   ]
-  constructor(public modal: SuiModal<{noteData: any}>) { }
+  constructor(public modal: SuiModal<INoteData>) { }
 
   updateTitle(event: any) {
-    this.title = event.target.innerText;
+    this.newNote.title = event.target.innerText;
   }
 
   updateNote(event: any) {
-    this.noteContent = event.target.innerText;
+    this.newNote.noteContent = event.target.innerText;
   }
 
   setBackgroundColor(color: string) {
     this.notDefaultColor = true;
-    this.backgroundColor = color;
+    this.newNote.backgroundColor = color;
   }
 
   removeBackground() {
     this.notDefaultColor = false;
-    this.backgroundColor = "";
+    this.newNote.backgroundColor = "";
   }
 
   ngOnInit(): void {
-    if (this.modal.context?.noteData?.edit) {
-      this.title = this.modal.context.noteData.title;
-      this.noteContent = this.modal.context.noteData.noteContent;
-      this.backgroundColor = this.modal.context.noteData.backgroundColor;
-      this.notDefaultColor = this.backgroundColor ? true : false;
+    if (this.modal.context?.isEdit) {
+      this.initialData = this.modal.context?.noteData;
+      this.newNote = this.modal.context?.noteData;
+      this.notDefaultColor = this.newNote?.backgroundColor ? true : false;
     }
   }
 
 }
 
-export class NoteModal extends ComponentModalConfig<{noteData: any}> {
+export class NoteModal extends ComponentModalConfig<INoteData> {
   constructor(noteData: any = undefined) {
     super(NoteModalComponent, noteData);
     this.isClosable = true;
@@ -69,4 +70,9 @@ export class NoteModal extends ComponentModalConfig<{noteData: any}> {
     this.isFullScreen = false;
     this.size = ModalSize.Tiny;
   }
+}
+
+interface INoteData {
+  noteData: any;
+  isEdit?: boolean;
 }

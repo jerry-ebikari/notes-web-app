@@ -1,29 +1,29 @@
 <div class="note-modal-container">
     <div
-        [class]="'ui vertical segment title ' + backgroundColor"
+        [class]="'ui vertical segment title ' + newNote.backgroundColor"
         contenteditable
         (input)="updateTitle($event)"
         [ngClass]="{
-            empty: title.length == 0,
+            empty: newNote.title.length == 0,
             inverted: notDefaultColor
         }"
     ></div>
     <div
-    [class]="'ui vertical segment note ' + backgroundColor"
+    [class]="'ui vertical segment note ' + newNote.backgroundColor"
         contenteditable
         (input)="updateNote($event)"
         [ngClass]="{
-            empty: noteContent.length == 0,
+            empty: newNote.noteContent.length == 0,
             inverted: notDefaultColor,
-            color: backgroundColor
+            color: newNote.backgroundColor
         }"
     ></div>
     
     <div
-        [class]="'ui vertical segment toolbar ' + backgroundColor"
+        [class]="'ui vertical segment toolbar ' + newNote.backgroundColor"
         [ngClass]="{
             inverted: notDefaultColor,
-            color: backgroundColor
+            color: newNote.backgroundColor
         }"
     >
         <div
@@ -46,11 +46,11 @@
         </div>
         <div class="buttons">
             <button
-                class="ui button"
+            [class]="'ui button ' + (newNote.backgroundColor == 'red' ? '' : 'red')"
                 (click)="modal.deny(undefined)"
             >Cancel</button>
             <button
-                [class]="'ui button ' + (backgroundColor == 'blue' ? 'black' : 'primary')"
+                [class]="'ui button ' + (newNote.backgroundColor == 'blue' ? 'black' : 'primary')"
             >Save</button>
         </div>
     </div>
