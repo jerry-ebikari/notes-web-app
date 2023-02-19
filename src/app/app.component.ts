@@ -15,6 +15,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.modalService.open(new NoteModal)
+    // this.modalService.open(new NoteModal)
   }
 }
