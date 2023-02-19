@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SuiModalService } from '@richardlt/ng2-semantic-ui';
-import { NoteModal } from './modals/note-modal/note-modal.component';
+import { NoteModal } from 'src/features/shared/modals/note-modal/note-modal.component';
 
 @Component({
   selector: 'app-root',
