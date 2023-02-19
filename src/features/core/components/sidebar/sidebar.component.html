@@ -3,7 +3,7 @@
         <a class="item">1</a>
         <a class="item">2</a>
     </sui-sidebar>
-    <sui-sidebar-sibling [isDimmedWhenVisible]="true">
+    <sui-sidebar-sibling [isDimmedWhenVisible]="true" (click)="isMobile() ? '' : sidebar.open()">
         <div class="ui basic segment">
             <h3 class="ui header">Content</h3>
             <p>Example content beside the sidebar</p>
