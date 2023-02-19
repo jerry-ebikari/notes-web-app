@@ -13,9 +13,6 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SuiModalModule,
-    SuiDropdownModule,
-    SuiPopupModule,
     SharedModule
   ],
   providers: [],

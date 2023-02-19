@@ -16,7 +16,10 @@ import { SuiDropdownModule, SuiModalModule, SuiPopupModule } from '@richardlt/ng
     SuiPopupModule,
   ],
   exports: [
-    NoteModalComponent
+    NoteModalComponent,
+    SuiModalModule,
+    SuiDropdownModule,
+    SuiPopupModule
   ]
 })
 export class SharedModule { }
