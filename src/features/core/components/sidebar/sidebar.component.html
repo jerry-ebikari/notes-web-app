@@ -1,7 +1,6 @@
 <sui-sidebar-container class="ui bottom attached segment">
     <sui-sidebar class="inverted vertical" #sidebar>
-        <a class="item">1</a>
-        <a class="item">2</a>
+        <a *ngFor="let item of items" class="item">{{item?.name}}</a>
     </sui-sidebar>
     <sui-sidebar-sibling [isDimmedWhenVisible]="true" (click)="isMobile() ? '' : sidebar.open()">
         <div class="ui basic segment">

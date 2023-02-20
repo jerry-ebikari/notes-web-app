@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ISidebarItem } from '../../models/sidebar-item';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,6 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
+  items: ISidebarItem[] = [
+    {
+      name: "Notes",
+      link: ""
+    }
+  ]
   constructor() { }
 
   ngOnInit(): void {
