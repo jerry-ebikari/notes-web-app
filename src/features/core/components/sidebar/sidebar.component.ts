@@ -8,6 +8,7 @@ import { ISidebarItem } from '../../models/sidebar-item';
 })
 export class SidebarComponent implements OnInit {
 
+  isVisible: boolean = true;
   items: ISidebarItem[] = [
     {
       name: "Notes",
@@ -17,6 +18,7 @@ export class SidebarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.isVisible = !this.isMobile()
   }
 
   isMobile() {

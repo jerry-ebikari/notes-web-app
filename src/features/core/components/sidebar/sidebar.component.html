@@ -1,11 +1,14 @@
 <sui-sidebar-container class="ui bottom attached segment">
-    <sui-sidebar class="inverted vertical" #sidebar>
+    <sui-sidebar
+        class="inverted vertical"
+        #sidebar
+        [(isVisible)]="isVisible"
+        [transition]="isMobile() ? 'overlay' : 'uncover'"
+    >
         <a *ngFor="let item of items" class="item">{{item?.name}}</a>
     </sui-sidebar>
-    <sui-sidebar-sibling [isDimmedWhenVisible]="true" (click)="isMobile() ? '' : sidebar.open()">
+    <sui-sidebar-sibling (click)="isMobile() ? '' : sidebar.open()">
         <div class="ui basic segment">
-            <h3 class="ui header">Content</h3>
-            <p>Example content beside the sidebar</p>
             <button class="ui button" (click)="sidebar.open()">Open Sidebar</button>
         </div>
     </sui-sidebar-sibling>
